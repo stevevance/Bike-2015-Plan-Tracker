@@ -95,7 +95,7 @@ if($fail != 1) {
     <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = '<?php echo $disquss_shortname; ?>'; // required: replace example with your forum shortname
+    var disqus_shortname = '<?php echo $disqus_shortname; ?>'; // required: replace example with your forum shortname
 	var disqus_identifier = '<?php echo $disqus_identifier; ?>';
 	var disqus_url = '<?php echo $url; ?>';
 
