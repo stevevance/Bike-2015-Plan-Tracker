@@ -1,0 +1,79 @@
+<?php
+$host = "";
+$user = "";
+$pw = "";
+$db = "";
+
+error_reporting(E_ALL);
+
+$mysql = mysql_connect($host,$user,$pw);
+mysql_select_db($db,$mysql);
+
+// configure tables and other variables
+$tableBp = "bikeplan";
+$tableChap = "bikeplan_chapters";
+$tableObj = "bikeplan_objectives";
+$tableStatus = "bikeplan_statuses";
+
+$disqus_shortname = "bike2015plantracker";
+$disqus_identifier = "details_$id";
+
+// select chapters
+$sql = "SELECT * FROM $tableChap ORDER BY chapterNum";
+$result = mysql_query($sql, $mysql);
+$chapList = "<ol>";
+$chapDir = array();
+while($r = mysql_fetch_assoc($result)) {
+	$chapList .= "<li><a href='?showChap=$r[chapterNum]'>$r[chapName]</a></li>";
+	$chapDir[$r['chapterNum']] = $r['chapName'];
+}
+$chapList .= "</ol>";
+
+
+// select objectives
+$sql = "SELECT * FROM $tableObj ORDER BY chapterNum, objectiveNum";
+$result = mysql_query($sql, $mysql);
+$objList = "<ol>";
+$objDir = array();
+while($r = mysql_fetch_assoc($result)) {
+	$objList .= "<li><a href='?showChap=$r[chapterNum]'>$r[chapName]</a></li>";
+	if(!empty($r['trackerTheme'])) {
+		$objectiveName = $r['trackerTheme'];
+	} else {
+		$objectiveName = $r['objectiveDescription'];
+	}
+	$objDir[$r['objectiveNum']] = $objectiveName;
+}
+$objList .= "</ol>";
+
+function returnTheme($chapter, $objective) {
+	global $tableObj, $mysql;
+	$sql = "SELECT * FROM $tableObj WHERE chapterNum = $chapter AND objectiveNum = $objective";
+	$result = mysql_query($sql, $mysql);
+	$total = mysql_num_rows($result);
+	if($total == 1) {
+		$r = mysql_fetch_array($result);
+		if(!empty($r['trackerTheme'])) {
+			$theme = $r['trackerTheme'];
+		} else {
+			$theme = $r['objectiveDescription'];
+		}
+	}
+	return $theme;
+}
+
+// functions
+function contains($substring, $string) {
+        $pos = strpos($string, $substring);
+ 
+        if($pos === false) {
+                // string needle NOT found in haystack
+                return false;
+        }
+        else {
+                // string needle found in haystack
+                return true;
+        }
+ 
+}
+?>

@@ -43,7 +43,7 @@ $nextPrevious = "<p><a href='details.php?id=$p[id]'><< previous strategy</a> - <
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Bike 2015 Plan Tracker - Details for Strategy <?php echo $title; ?></title>
+<title>Bike 2015 Plan Tracker - Details for Strategy<?php echo $title; ?>x</title>
 <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -74,14 +74,18 @@ if($fail != 1) {
 	// get status updates for this objective
 	$sql = "SELECT * FROM $tableStatus WHERE objective_id = '$id' ORDER BY timestamp";
 	$result = mysql_query($sql, $mysql);
-	if(mysql_num_rows($mysql) > 0) {
+	if(mysql_num_rows($result) > 0) {
 		$st = "<h2>Status Updates</h2>";
 		$st .= "<table><tr><th>Date</th><th>Description</th><th>Contributor</th></tr>";
 		while($s = mysql_fetch_assoc($result)) {
-			$st .= "<tr><td>".date("m-d-Y",$s['timestamp'])."</td><td>".$s['status_description']."</td><td>".$s['status_contributor']."</td></tr>";
+			$st .= "<tr><td>".date("m-d-Y",strtotime($s['timestamp']))."</td><td>".$s['status_description']."</td><td>".$s['status_contributor']."</td></tr>";
 		}
 		$st .= "</table>";
+	} else {
+		$st = "<p>There are no status updates at this time.</p>";
 	}
+	echo $st;
+		
 	
 	echo "<p>Tracker notes are written by <a href='http://gridchicago.com/contact'>Grid Chicago</a> based on our own research and that from contributors.</p>"; 
 	echo "<h2>Comments</h2>";
