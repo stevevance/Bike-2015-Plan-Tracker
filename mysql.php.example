@@ -11,6 +11,7 @@ mysql_select_db($db,$mysql);
 
 // USER CONFIGURATION
 $disqus_shortname = "bike2015plantracker";
+$google_analytics = "";
 
 // APP CONFIGURATION
 // configure tables and other variables - DO NOT CHANGE THESE
