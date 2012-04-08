@@ -88,6 +88,8 @@ if($fail != 1) {
 		
 	
 	echo "<p>Tracker notes are written by <a href='http://gridchicago.com/contact'>Grid Chicago</a> based on our own research and that from contributors.</p>"; 
+	
+	if(!empty($disqus_shortname)) {
 	echo "<h2>Comments</h2>";
 	?>
     <div id="disqus_thread"></div>
@@ -107,6 +109,7 @@ if($fail != 1) {
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
     <?php
+	} // end comments section
 } else {
 	echo "<p>$message</p>";
 }
