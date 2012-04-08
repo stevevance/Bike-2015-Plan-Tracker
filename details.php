@@ -45,6 +45,7 @@ $nextPrevious = "<p><a href='details.php?id=$p[id]'><< previous strategy</a> - <
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Bike 2015 Plan Tracker - Details for Strategy<?php echo $title; ?>x</title>
 <link href="styles.css" rel="stylesheet" type="text/css" />
+<?php require_once("analytics.php"); ?>
 </head>
 
 <body>
