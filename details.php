@@ -1,10 +1,11 @@
 <?php
-require_once("mysql.php");
 
 $id = $_GET['id'];
 if(!is_numeric($id)) {
 	$id = 0;
 }
+require_once("mysql.php");
+
 if($id > 0) {
 	// get the details of this strategy
 	$sql = "SELECT * FROM $tableBp s, $tableChap c, $tableObj o 
@@ -69,14 +70,27 @@ if($fail != 1) {
 
 	echo $table;
 	echo $nextPrevious;
+	
+	// get status updates for this objective
+	$sql = "SELECT * FROM $tableStatus WHERE objective_id = '$id' ORDER BY timestamp";
+	$result = mysql_query($sql, $mysql);
+	if(mysql_num_rows($mysql) > 0) {
+		$st = "<h2>Status Updates</h2>";
+		$st .= "<table><tr><th>Date</th><th>Description</th><th>Contributor</th></tr>";
+		while($s = mysql_fetch_assoc($result)) {
+			$st .= "<tr><td>".date("m-d-Y",$s['timestamp'])."</td><td>".$s['status_description']."</td><td>".$s['status_contributor']."</td></tr>";
+		}
+		$st .= "</table>";
+	}
+	
 	echo "<p>Tracker notes are written by <a href='http://gridchicago.com/contact'>Grid Chicago</a> based on our own research and that from contributors.</p>"; 
 	echo "<h2>Comments</h2>";
 	?>
     <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'bike2015plantracker'; // required: replace example with your forum shortname
-	var disqus_identifier = 'details_<?php echo $id; ?>';
+    var disqus_shortname = '<?php echo $disquss_shortname; ?>'; // required: replace example with your forum shortname
+	var disqus_identifier = '<?php echo $disqus_identifier; ?>';
 	var disqus_url = '<?php echo $url; ?>';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
