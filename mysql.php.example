@@ -4,18 +4,21 @@ $user = "";
 $pw = "";
 $db = "";
 
-error_reporting(E_ALL);
+error_reporting(0);
 
 $mysql = mysql_connect($host,$user,$pw);
 mysql_select_db($db,$mysql);
 
-// configure tables and other variables
+// USER CONFIGURATION
+$disqus_shortname = "bike2015plantracker";
+
+// APP CONFIGURATION
+// configure tables and other variables - DO NOT CHANGE THESE
 $tableBp = "bikeplan";
 $tableChap = "bikeplan_chapters";
 $tableObj = "bikeplan_objectives";
 $tableStatus = "bikeplan_statuses";
 
-$disqus_shortname = "bike2015plantracker";
 $disqus_identifier = "details_$id";
 
 // select chapters
