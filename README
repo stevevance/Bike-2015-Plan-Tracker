@@ -1,0 +1,11 @@
+BIKE 2015 PLAN TRACKER
+
+The Bike 2015 Plan Tracker is a web application to track the progress of Chicago's Bike 2015 Plan, which was adopted by Chicago City Council in 2005. 
+
+ABOUT
+I created the Bike 2015 Plan Tracker so that Chicagoans could more easily browse the 153 strategies of the plan, and then learn about each strategy's progress. Visitors can leave comments in the Disqus system. 
+
+INSTALLATION
+1. Open mysql.php.example and fill in your MySQL connection details. 
+2. Add your Disqus shortname to $disqus_shortname
+3. Import the bikeplantracker_structure.sql into your MySQL database. This only has the structure and not sample data. 
