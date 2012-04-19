@@ -1,0 +1,119 @@
+table {
+	font: .9em/1.5em Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	}
+
+th {
+	padding: 0.3em 0.7em;
+	text-align: left;
+	font-size:1.2em;
+	}
+
+tr.yellow td {
+	border-top: 1px solid #FB7A31;
+	border-bottom: 1px solid #FB7A31;
+	background: #FFC;
+	}
+
+td {
+	border-bottom: 1px solid #CCC;
+	padding: 0 0.7em;
+	vertical-align:top;
+}
+td img {
+	padding: 0.3em 0.7em;
+}
+
+td:first-child {
+	width: 50px;
+	}
+
+td+td {
+	border-left: 1px solid #CCC;
+	text-align: left;
+	}
+h1 a {
+	text-decoration:none;
+	color:#000;
+}
+h2 {
+	font-size:1.3em;
+}
+#chapterBox {
+	width:300px;
+	float:left;
+	margin-right:10px;
+}
+#chapterBox h2 {
+	margin-top:0;
+	padding-top:0;
+}
+#chapterBox ol {
+	margin-left:10px;
+	padding-left:15px;
+}
+
+#introductionBox {
+	width:300px;
+	float:left;
+	margin-right:25px;
+	height:260px;
+}
+#introductionBox p {
+	padding-top:0;
+	margin-top:0;
+	font-size:.8em;
+	line-height:1.4em;
+}
+#statusBox {
+	width:300px;
+	float:left;
+}
+#statusBox h2 {
+	margin-top:0;
+}
+#statusBox li {
+	list-style-type:none;
+	list-style:none;
+}
+#statusBox ul {
+	margin-left:0;
+	padding-left:15px;
+}
+#themeBox {
+	width:300px;
+	float:left;
+	margin-right:10px;
+}
+#themeBox h2 {
+	margin-top:0;
+}
+#themeBox ul {
+	margin-left:10px;
+	padding-left:15px;
+}
+
+#header {
+	width:100%;
+	height:99px;
+}
+body {
+	font: 0.9em/1.5em Arial, Helvetica, sans-serif;
+}
+.clear {
+	clear:both;
+}
+.hidden {
+	display:none;
+}
+a:link { color:#069; text-decoration:underline; }
+a:visited           { color:#069; text-decoration:underline; }
+a:hover             { color:#069; text-decoration:underline; }
+a:active            { color:#069; text-decoration:underline; }
+img {
+	border:0;
+}
+.gridProject {
+	float:right;
+}
